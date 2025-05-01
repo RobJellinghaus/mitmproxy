@@ -230,6 +230,9 @@ def _ensure_pyinstaller_onedir():
 
 
 def _test_binaries(binary_directory: Path) -> None:
+    print("Test binaries in directory:")
+    subprocess.check_call(["ls", "-la", binary_directory])
+
     for tool in ["mitmproxy", "mitmdump", "mitmweb"]:
         executable = binary_directory / tool
         if platform.system() == "Windows":
